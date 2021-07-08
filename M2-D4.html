@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <!--
     WELCOME TO THE STRIVE TEAM GENERATOR!
-
     In this app you will generate teams and assign the participants to them.
     You will use the Bootstrap components for the elements of your app.
-
     The features are the following:
     - The user should be able to add a list of names, find a way to get the user input and fill a list with the new name.
     - The user should be able to set the number of teams he wants, so that they will be generated. A team is just another list to be displayed.
@@ -15,23 +13,58 @@
     - [EXTRA] Create a button to reset the state of the app.
 -->
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+      <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
 
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
+        <!-- Bootstrap CSS -->
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+          crossorigin="anonymous"/>
+        <link rel="stylesheet" href="styles.css"/>
+
+        <title>Team Generator</title>
+
+      </head>
+      <body>
+      
+      <div class="jumbotron jumbotron-fluid m-3">
+        <div class="container">
+          <h1 class="display-4">Team Generator</h1>
+        </div>
+      </div>
+
+      <div class="input-group mb-3">
+        <input id="userinput" type="text" class="form-control ml-3" placeholder="Enter name here" aria-label="Add a name" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-outline-info mr-3" id="enter" type="button">Add</button>
+        </div>
+      </div>
+
+    <div class="col-12">
+      <ul class="list-group">
+        <li class="list-group-item">Example Name</li>
+      </ul>
+    </div>
+
+    <script>
+      var button = document.getElementById("enter")
+      var input = document.getElementById("userinput")
+      var ul = document.querySelector("ul")
+      
+      button.addEventListener("click", function() {
+        var li = document.createElement("li")
+        li.className = 'list-group-item'
+        li.textContent = input.value
+        ul.appendChild(li)
+      })
+    </script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
