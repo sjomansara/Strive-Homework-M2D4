@@ -29,12 +29,14 @@
           crossorigin="anonymous"/>
         <link rel="stylesheet" href="styles.css"/>
 
+        <link rel="stylesheet" href="styles.css">
+
         <title>Team Generator</title>
 
       </head>
       <body>
       
-      <div class="jumbotron jumbotron-fluid m-3">
+      <div class="jumbotron jumbotron-fluid m-3 rounded bg-warning text-white">
         <div class="container">
           <h1 class="display-4">Team Generator</h1>
         </div>
@@ -43,27 +45,59 @@
       <div class="input-group mb-3">
         <input id="userinput" type="text" class="form-control ml-3" placeholder="Enter name here" aria-label="Add a name" aria-describedby="basic-addon2">
         <div class="input-group-append">
-          <button class="btn btn-outline-info mr-3" id="enter" type="button">Add</button>
+          <button class="btn btn-outline-warning mr-3" id="enter" type="button">Add</button>
         </div>
       </div>
 
-    <div class="col-12">
-      <ul class="list-group">
-        <li class="list-group-item">Example Name</li>
-      </ul>
-    </div>
+      <div class="ml-4 mt-3 mb-3"
+      <label for="numbers">Add number of teams:</label>
+
+      <select name="numbers" id="numbers">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+
+      <button class="btn btn-outline-warning ml-3" id="numberOfTeams" type="button">Add</button>
+
+      </div>
+
+      <div class="col-12" id="listOfTeams">
+        <ul class="list-group mb-3">
+          <li class="list-group-item">Example Name</li>
+        </ul>
+      </div>
 
     <script>
-      var button = document.getElementById("enter")
-      var input = document.getElementById("userinput")
-      var ul = document.querySelector("ul")
+
+      let button = document.getElementById("enter")
+      let input = document.getElementById("userinput")
+      let ul = document.querySelector("ul")
       
       button.addEventListener("click", function() {
-        var li = document.createElement("li")
+        let li = document.createElement("li")
         li.className = 'list-group-item'
         li.textContent = input.value
         ul.appendChild(li)
       })
+
+      let teamButton = document.getElementById("numberOfTeams")
+      let numberInput = document.getElementById("numbers")
+      
+      teamButton.addEventListener("click", function() {
+        let numberOfTeams = numberInput.value
+        let parent = document.getElementById("listOfTeams")
+        for (let i = 0; i < parseInt(numberOfTeams); i++) {
+
+          let ul = document.createElement("ul")
+          ul.id = "team" + i
+          ul.className = 'border'
+          parent.appendChild(ul)
+        }
+      })
+
     </script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
